@@ -105,5 +105,7 @@ Reform pressure: The Church has failed. Something must change.
 The Medieval synthesis begins to crack. The certainties no longer hold.`,
 			imagePlaceholder: 'Plague doctor amid Black Death devastation'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

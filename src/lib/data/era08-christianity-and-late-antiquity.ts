@@ -136,5 +136,7 @@ This is HOW (state power) enforcing WHY (Christian theology). The three-body pro
 
 Within a century, Islam conquers from Spain to India. The speed is unprecedented. A new three-body orbit achieves stable configuration and expands explosively.`,
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theLaschampTrigger: Era = {
 	id: 'era-2',
 	number: 'II',
-	title: 'THE LASCHAMP TRIGGER      (3 AI PASSES, Manual Edits Required)',
+	title: 'THE LASCHAMP TRIGGER      (3 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~42,000 - 12,000 years ago',
 	description: 'The physics: Earth\'s magnetic poles flip. The shield drops to 5% strength. Cosmic radiation floods the surface. Auroras descend to the equator—visible at all latitudes, blood-red. For ~800 years, the heavens are wounded. HOW fails completely. Spears don\'t kill auroras. Fire doesn\'t protect from invisible rays. The WHY-brain comes online not through gradual development but through apocalyptic necessity.',
 	events: [
@@ -405,5 +405,7 @@ The humans who emerge carry: WHY-capacity developed under Laschamp, symbolic sys
 The cave era is over. The village era begins. The wheel turns.`,
 			imagePlaceholder: 'Transition from Pleistocene to Holocene - ice retreating, villages forming'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

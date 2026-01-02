@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theHardwarePeriod: Era = {
 	id: 'era-1',
 	number: 'I',
-	title: 'THE HARDWARE PERIODR      (4 AI PASSES, Manual Edits Required)',
+	title: 'THE HARDWARE PERIOD      (4 AI PASSES, Manual Edits Required, Verification in Progress)',
 	timespan: '~300,000 - 42,000 years ago',
 	description: 'The hardware exists. Brain capacity sufficient for everything that follows. But the WHY-brain is not yet online. HOW dominates—tools improve, fire is mastered, hunting strategies develop. WHAT exists (death, weather, predators) but is processed purely through mechanism.',
 	events: [
@@ -447,5 +447,17 @@ export const theHardwarePeriod: Era = {
     content: "Earth's magnetic field begins its decline toward the Laschamp excursion. Over the next 2,000 years, field strength will drop to approximately 5% of normal. The magnetosphere—Earth's shield against cosmic radiation—is failing.\n\nAs the field weakens, cosmic ray flux increases. Atmospheric chemistry changes. Aurora borealis becomes visible at equatorial latitudes. The sky itself transforms—stable patterns that had persisted for generations begin to shift.\n\nFor humans at this moment, the world is about to change in ways their HOW-capacity cannot process. Mechanism provides no explanation for skies that glow, for patterns that shift without cause. The stage is set for WHY to emerge—not as luxury but as necessity.\n\nThe hardware has existed for 250,000 years. The software is about to activate.",
     imagePlaceholder: "Weakening magnetic field visualization approaching Laschamp"
   }
-]
+],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	// Tag is optional - only add if relevant (e.g., "tech", "cognitive", "climate", etc.)
+	links: {
+		// Example entries (replace with real links):
+		// "1": { url: "https://example.com/article1", tag: "tech" },
+		// "2": { url: "https://example.com/article2" }
+    "1": { url: "https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans", tag: "tech" },
+    "2": { url: "https://en.wikipedia.org/wiki/Behavioral_modernity, https://en.wikipedia.org/wiki/Jebel_Irhoud" },
+    "3": { url: "https://en.wikipedia.org/wiki/Ochre, https://en.wikipedia.org/wiki/Middle_Stone_Age, https://en.wikipedia.org/wiki/Lupemban_culture", tag: "tech" },
+    "4": { url: "https://en.wikipedia.org/wiki/Levallois_technique", tag: "tech"},
+    "5": { url: "https://en.wikipedia.org/wiki/Hafting", tag: "tech"},
+	}
 };

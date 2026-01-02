@@ -67,7 +67,7 @@ In Israel/Palestine: Israel captures Jerusalem, West Bank, Gaza, Sinai, Golan. T
 			id: 'september-11',
 			date: '~24 years ago (2001)',
 			title: 'September 11, 2001',
-			type: 'hammerfall',
+			type: 'collapse',
 			summary: 'HAMMERFALL-SCALE TRAUMA (for the US)',
 			content: `Al-Qaeda attacks New York and Washington. The response: the "War on Terror"—two decades of warfare that kills hundreds of thousands, destabilizes regions, and ultimately fails to establish stable order.
 
@@ -80,7 +80,7 @@ The WHY-frameworks of both sides intensify. Jihadism becomes more extreme; Ameri
 			title: 'Arab Spring',
 			type: 'collapse',
 			summary: 'The hope: democracy. The result (mostly): civil war.',
-			content: `Mass protests across the Arab world. Tunisia, Egypt, Libya, Syria, Yemen—regimes fall or fight. The hope: democracy. The result (mostly): civil war, new authoritarianism, the Islamic State.`,
+			content: `Mass protests across the Arab world. Tunisia, Egypt, Libya, Syria, Yemen—regimes fall or fight. The hope: democracy. The result (mostly): civil war, new authoritarianism.`,
 			imagePlaceholder: 'Tahrir Square protests and Syrian civil war destruction'
 		},
 		{
@@ -98,5 +98,7 @@ The question: what new WHY-frameworks will emerge? Will they be adequate to the 
 **The wheel turns. The +1 remains.**`,
 			imagePlaceholder: 'Social media feeds fragmenting, AI neural networks, digital chaos and light'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

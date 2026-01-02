@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theBronzeAgeCollapse: Era = {
 	id: 'era-6',
 	number: 'VI',
-	title: 'THE BRONZE AGE COLLAPSE       (3 AI PASSES, Manual Edits Required)',
+	title: 'THE BRONZE AGE COLLAPSE       (3 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~3,200 - 2,800 years ago (~1200 - 800 BCE)',
 	description: 'One of the most complete civilizational collapses in recorded history. Within fifty years: the Hittite Empire destroyed, Mycenaean Greece destroyed, Ugarit burned, Egypt permanently weakened, trade networks severed, writing systems lost. The Bronze Age international system—built over a thousand years—dies. From the ruins: iron democratizes, alphabets spread, new peoples emerge, and the foundations of the classical world are laid in ashes.',
 	events: [
@@ -1346,5 +1346,7 @@ The pattern: Collapse destroys political structures and elite cultures. It does 
 What's next: Era VII brings the Axial Age—Buddha, Confucius, the Hebrew prophets, Greek philosophy. The recovery doesn't just restore; it transcends.`,
 			imagePlaceholder: 'Mediterranean world recovering: Greek ships, Phoenician traders, iron tools'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

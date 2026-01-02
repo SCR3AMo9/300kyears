@@ -43,6 +43,11 @@ export interface EraSummary {
 	whatsGoneForever: string[];
 }
 
+export interface EraLink {
+	url: string;  // Can be comma-separated for multiple links: "url1, url2, url3"
+	tag?: EventType;  // Optional tag like 'tech'
+}
+
 export interface Era {
 	id: string;
 	number: string;
@@ -51,4 +56,5 @@ export interface Era {
 	description: string;
 	events: TimelineEvent[];
 	summary?: EraSummary;
+	links?: Record<string, EraLink>;  // e.g., { "1": { url: "link1, link2", tag: "tech" }, "2": { url: "..." } }
 }

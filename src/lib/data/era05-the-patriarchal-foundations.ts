@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const thePatriarchalFoundations: Era = {
 	id: 'era-5',
 	number: 'V',
-	title: 'THE PATRIARCHAL FOUNDATIONS      (3 AI PASSES, Manual Edits Required)',
+	title: 'THE PATRIARCHAL FOUNDATIONS      (3 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~4,000 - 3,200 years ago',
 	description: 'The age of the fathers. Abraham walks. Moses leads. Hammurabi legislates. The chariot transforms warfare. Indo-European peoples—carrying horses, wheels, and sky-father gods—sweep across Eurasia from Ireland to India. The gods who will dominate the next 3,000 years take their thrones: Zeus, YHWH, Indra, Shangdi, Marduk. Patriarchy codifies from social tendency to legal structure. The Bronze Age reaches its zenith. The collapse waits.',
 	events: [
@@ -981,5 +981,7 @@ Within one century, this entire system will collapse. Hatti destroyed. Mycenaean
 The Bronze Age Collapse is coming—the first system-wide civilizational catastrophe in recorded history. Era VI will be the reckoning.`,
 			imagePlaceholder: 'Bronze Age world on the eve of collapse'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

@@ -111,5 +111,7 @@ Hiroshima and Nagasaki: humanity now has the power to end itself. HOW reaches it
 The founding of Israel: the ancient WHY-framework reconstitutes as modern nation-state. The return after 1,900 years. But also the Nakba—another people's catastrophe. The conflict continues.`,
 			imagePlaceholder: 'Auschwitz gates and atomic bomb mushroom cloud'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

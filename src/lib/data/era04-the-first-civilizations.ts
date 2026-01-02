@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theFirstCivilizations: Era = {
 	id: 'era-4',
 	number: 'IV',
-	title: 'THE FIRST CIVILIZATIONS      (3 AI PASSES, Manual Edits Required)',
+	title: 'THE FIRST CIVILIZATIONS      (3 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~6,000 - 4,000 years ago',
 	description: 'The three-body dynamic achieving stable orbit for the first time at scale: WHAT (the gods hold the mysteries), WHY (the temple interprets, mediates, explains), HOW (the state executes—irrigation, warfare, trade). The village becomes city. The chief becomes king. The shaman becomes priest. Writing captures speech. Bronze replaces stone. The human world begins.',
 	events: [
@@ -899,5 +899,7 @@ Law: Written law codes. Administration by record. Bureaucracy as technology.
 The three-body system orbits: WHAT held by gods, WHY mediated by temples, HOW executed by states. The next era will see these foundations tested—by new peoples, new gods, new challenges.`,
 			imagePlaceholder: 'Composite of civilization achievements: pyramid, ziggurat, Indus seal, oracle bone'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

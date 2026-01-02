@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theAgriculturalRevolution: Era = {
 	id: 'era-3',
 	number: 'III',
-	title: 'THE AGRICULTURAL REVOLUTION      (3 AI PASSES, Manual Edits Required)',
+	title: 'THE AGRICULTURAL REVOLUTION      (3 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~12,000 - 6,000 years ago',
 	description: 'WHY came first. The need to gather for ritual created the conditions for sedentism. The need to feed the gatherers created pressure for agriculture. Göbekli Tepe proves it: the temple preceded the farm. But once agriculture began, HOW transformed everything—bodies, societies, landscapes, and the meaning-systems themselves. This era sees humanity lock itself into a new mode of existence from which there is no return.',
 	events: [
@@ -745,5 +745,7 @@ The village era ends. The city era begins. Era IV will see the first states, the
 The remainder persists. The agricultural trap is closing. There is no going back.`,
 			imagePlaceholder: 'Transition from village to city'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };

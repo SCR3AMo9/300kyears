@@ -30,6 +30,9 @@
 	// Track which era summaries are expanded (collapsed by default)
 	let expandedEraSummaries = $state<Set<string>>(new Set());
 
+	// Track which era links sections are expanded (collapsed by default)
+	let expandedEraLinks = $state<Set<string>>(new Set());
+
 	function toggleEraSummary(eraId: string) {
 		if (expandedEraSummaries.has(eraId)) {
 			expandedEraSummaries.delete(eraId);
@@ -37,6 +40,28 @@
 		} else {
 			expandedEraSummaries.add(eraId);
 			expandedEraSummaries = new Set(expandedEraSummaries);
+		}
+	}
+
+	function toggleEraLinks(eraId: string) {
+		if (expandedEraLinks.has(eraId)) {
+			expandedEraLinks.delete(eraId);
+			expandedEraLinks = new Set(expandedEraLinks);
+		} else {
+			expandedEraLinks.add(eraId);
+			expandedEraLinks = new Set(expandedEraLinks);
+		}
+	}
+
+	// Scroll to event by entry number (1-indexed) within an era
+	function scrollToEventByEntry(era: typeof eras[0], entryNum: string) {
+		const eventIndex = Number(entryNum) - 1; // Convert to 0-indexed
+		if (eventIndex >= 0 && eventIndex < era.events.length) {
+			const event = era.events[eventIndex];
+			const element = document.getElementById(event.id);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
 		}
 	}
 
@@ -241,9 +266,9 @@
 
 				<p>
 					Each era represents a distinct phase in how our species has processed existence: the
-					interplay of <strong>WHAT</strong> we experience, <strong>WHY</strong> it matters, and
-					<strong>HOW</strong> we respond. Watch for the patterns: <em>Expansions</em> when
-					consciousness grows, <em>Collapses</em> when systems fail, and <em>Hammerfalls</em>—those
+					interplay of <strong>WHAT</strong> we experience and know to be fact, <strong>WHY</strong> it matters, and
+					<strong>HOW</strong> we respond. We will try to find patterns behind the patterns: <em>Expansions</em> when
+					ideas spreads, <em>Collapses</em> when systems fail, and <em>Hammerfalls</em>—those
 					catastrophic moments when the sky breaks and everything must be reinvented.
 				</p>
 			</section>
@@ -423,6 +448,42 @@
 									{/if}
 								{/each}
 							</div>
+
+							<!-- Era Links (collapsible) -->
+							{#if era.links && Object.keys(era.links).length > 0}
+								<div class="era-links-section">
+									<button class="era-links-header" onclick={() => toggleEraLinks(era.id)}>
+										<span class="links-toggle" class:expanded={expandedEraLinks.has(era.id)}>&#9658;</span>
+										<span class="links-title">Sources & Links</span>
+									</button>
+
+									{#if expandedEraLinks.has(era.id)}
+										<div class="era-links-body">
+											{#each Object.entries(era.links).sort(([a], [b]) => Number(a) - Number(b)) as [num, link]}
+												{@const urls = link.url.split(',').map(u => u.trim()).filter(u => u)}
+												<div class="link-entry">
+													<div class="link-entry-row">
+														<button class="link-label-btn" onclick={() => scrollToEventByEntry(era, num)}>Entry {num}:</button>
+														{#if link.tag}
+															<span class="link-tag" data-type={link.tag}>{formatTagLabel(link.tag)}</span>
+														{/if}
+														{#if urls[0]}
+															<a href={urls[0]} target="_blank" rel="noopener noreferrer" class="link-url">{urls[0]}</a>
+														{/if}
+													</div>
+													{#if urls.length > 1}
+														{#each urls.slice(1) as url}
+															<div class="link-entry-row link-continuation">
+																<a href={url} target="_blank" rel="noopener noreferrer" class="link-url">{url}</a>
+															</div>
+														{/each}
+													{/if}
+												</div>
+											{/each}
+										</div>
+									{/if}
+								</div>
+							{/if}
 						{/if}
 					</article>
 				{/each}
@@ -511,7 +572,7 @@
 	.sidebar {
 		position: sticky;
 		top: 2rem;
-		width: 480px;
+		width: 540px;
 		height: fit-content;
 		flex-shrink: 0;
 	}
@@ -526,7 +587,7 @@
 		}
 
 		.sidebar {
-			width: 440px;
+			width: 480px;
 		}
 	}
 
@@ -540,7 +601,7 @@
 		}
 
 		.sidebar {
-			width: 400px;
+			width: 420px;
 		}
 	}
 
@@ -1160,6 +1221,138 @@
 	.summary-list.lost-list li::before {
 		content: '✗';
 		color: #c62828;
+	}
+
+	/* ===== ERA LINKS SECTION ===== */
+	.era-links-section {
+		margin: var(--spacing-lg) 0;
+		border: 1px solid var(--color-border-light);
+		border-left: 3px solid #5a7a8a;
+		border-radius: 6px;
+		overflow: hidden;
+		background: var(--color-bg);
+	}
+
+	.era-links-header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		width: 100%;
+		padding: 0.85rem 1rem;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		transition: background 150ms ease;
+	}
+
+	.era-links-header:hover {
+		background: var(--color-bg-alt);
+	}
+
+	.links-toggle {
+		font-size: 0.65rem;
+		color: #5a7a8a;
+		transition: transform 200ms ease;
+		display: inline-block;
+	}
+
+	.links-toggle.expanded {
+		transform: rotate(90deg);
+	}
+
+	.links-title {
+		font-family: var(--font-sans);
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: #5a7a8a;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+	}
+
+	.era-links-body {
+		padding: var(--spacing-md) var(--spacing-lg);
+		border-top: 1px solid var(--color-border-light);
+		background: var(--color-bg-alt);
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.link-entry {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+		padding: 0.5rem 0;
+		border-bottom: 1px solid var(--color-border-light);
+	}
+
+	.link-entry:last-child {
+		border-bottom: none;
+	}
+
+	.link-entry-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.link-entry-row.link-continuation {
+		padding-left: calc(70px + 0.5rem); /* Align with first URL (Entry X: width + gap) */
+	}
+
+	.link-label-btn {
+		font-family: var(--font-sans);
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--color-text-secondary);
+		min-width: 70px;
+		flex-shrink: 0;
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		text-align: left;
+		transition: color 150ms ease;
+	}
+
+	.link-label-btn:hover {
+		color: #5a7a8a;
+		text-decoration: underline;
+	}
+
+	.link-tag {
+		font-family: var(--font-sans);
+		font-size: 0.7rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 2px 8px;
+		border-radius: 3px;
+		background: var(--color-bg-alt);
+		color: var(--color-text-secondary);
+	}
+
+	/* Link tag colors (reuse event-type styles) */
+	.link-tag[data-type="tech"] { background: #e0e5e8; color: #4a5a68; }
+	.link-tag[data-type="cognitive"] { background: #ebe4f0; color: #6a5a7a; }
+	.link-tag[data-type="climate"] { background: #e4eaef; color: #5a6878; }
+	.link-tag[data-type="migration"] { background: #f2ebe0; color: #8a7a60; }
+	.link-tag[data-type="external"] { background: #3a3235; color: #c0a8a8; }
+	.link-tag[data-type="hammerfall"] { background: #2d2d2d; color: #c08080; }
+	.link-tag[data-type="collapse"] { background: #4a4a4a; color: #d0d0d0; }
+	.link-tag[data-type="expansion"] { background: #f5ecd4; color: #b8942a; }
+
+	.link-url {
+		font-family: var(--font-sans);
+		font-size: 0.85rem;
+		color: #5a7a8a;
+		text-decoration: none;
+		word-break: break-all;
+	}
+
+	.link-url:hover {
+		text-decoration: underline;
 	}
 
 	/* ===== MOBILE TOC TOGGLE & OVERLAY ===== */

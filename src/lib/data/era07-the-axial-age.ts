@@ -3,7 +3,7 @@ import type { Era } from './types';
 export const theAxialAge: Era = {
 	id: 'era-7',
 	number: 'VII',
-	title: 'THE AXIAL AGE      (2 AI PASSES, Manual Edits Required)',
+	title: 'THE AXIAL AGE      (2 AI PASSES, Manual Edits Required, Verification Required)',
 	timespan: '~2,500 - 2,000 years ago (~500 BCE - 0 CE)',
 	description: 'The axis around which human history turns. Simultaneously, across disconnected civilizations, reflexive consciousness achieves breakthrough. Buddha in India. Confucius in China. The Hebrew prophets in exile. Greek philosophy on the Aegean. Zoroastrianism in Persia. The WHY-capacity, developed under Laschamp pressure 40,000 years ago, finally becomes strong enough to examine itself. Humans begin thinking about thinking about meaning. And as consciousness expands, so does power—Persia builds the first true world empire, Alexander shatters it, Rome rises from Italian village to Mediterranean hegemon, China unifies, India consolidates. The frameworks that will dominate the next 2,500 years are forged in these five centuries.',
 	events: [
@@ -2115,5 +2115,7 @@ Judaism survives under Roman rule
 Christianity is about to be born`,
 			imagePlaceholder: 'The classical world at 1 CE'
 		}
-	]
+	],
+	// Links format: { "1": { url: "...", tag: "tech" }, "2": { url: "..." } }
+	links: {}
 };
